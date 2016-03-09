@@ -1,0 +1,21 @@
+Backend
+--------
+NodeJS i mongoDB
+
+Frontend
+--------
+Angular
+
+
+Per fer funcionar el projecte cal tindre instal·lat al host nodeJS amb el npm i el
+mongodb
+
+Per farcir la BD de mongo amb dades inicials cal descomprimir backend/dump.20150611.tgz
+i executar "mongorestore dump"
+
+La primera vegada que engeguem el projecte cal instal·lar els mòduls nodeJS que usen tant backend/ com el frontend/
+Per tant entrem a backend/ i fem "npm install". El mateix en frontend/
+
+Després cal arrancar el server. Entrem en backend/ i executem "node index.js"
+
+Seguidament obrirem  `http://localhost:3000/frontend/index.html' i explorarem l'aplicació

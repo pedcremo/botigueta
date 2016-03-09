@@ -1,0 +1,18 @@
+<!--
+TODO: this HTML should expose a search bar
+!-->
+
+<div class="search-bar-wrapper">
+              <span>CATEGORIES</span><br>
+              <a href="#/category/Menjars">Menjars</a> |
+              <a href="#/category/Vins i licors">Vins i licors</a> |
+              <a href="#/category/Souvenirs">Souvenirs</a> |
+              <a href="#/category/Llibres">Llibres</a>
+              <hr>
+              <input type="text"  ng-model="searchText" ng-change="update()" class="search-bar-input" placeholder="Buscar" />
+              <div ng-repeat="item in results" class="autocomplete-result">
+                <a href="#/product/{{item._id}}">{{item.name}}</a>
+              </div>
+
+
+</div>
