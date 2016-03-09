@@ -21,8 +21,9 @@ Després cal arrancar el server. Executem "node backend/index.js"
 Seguidament obrirem  `http://localhost:3000/frontend/index.html' i explorarem l'aplicació
 
 
-HEROKU
+HEROKU (https://devcenter.heroku.com/articles/mean-apps-restful-api)
 ------
+"heroku login"
 https://botigueta.herokuapp.com/ | https://git.heroku.com/botigueta.git
 heroku addons:create mongolab
 
