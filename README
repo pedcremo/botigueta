@@ -16,6 +16,38 @@ i executar "mongorestore dump"
 La primera vegada que engeguem el projecte cal instal·lar els mòduls nodeJS que usen tant backend/ com el frontend/
 Per tant entrem a backend/ i fem "npm install". El mateix en frontend/
 
-Després cal arrancar el server. Entrem en backend/ i executem "node index.js"
+Després cal arrancar el server. Executem "node backend/index.js"
 
 Seguidament obrirem  `http://localhost:3000/frontend/index.html' i explorarem l'aplicació
+
+
+HEROKU
+------
+https://botigueta.herokuapp.com/ | https://git.heroku.com/botigueta.git
+heroku addons:create mongolab
+
+To connect using the mongo shell:
+mongo ds017258.mlab.com:17258/heroku_1lps40vz -u <dbuser> -p <dbpassword>
+To connect using a driver via the standard MongoDB URI (what's this?):
+  mongodb://<dbuser>:<dbpassword>@ds017258.mlab.com:17258/heroku_1lps40vz
+
+dbuser:pedcremo
+dbpassword:pedcremo
+
+JSON
+----
+Import collection
+mongoimport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> --file <input file>
+Export collection
+mongoexport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> -o <output file>
+
+Exemple: mongoexport -h localhost:27017 -d bocairent -c categories -o bocairent_categories.json
+mongoexport -h localhost:27017 -d bocairent -c products -o bocairent_products.json
+mongoexport -h localhost:27017 -d bocairent -c users -o bocairent_users.json
+
+CSV
+---
+Import collection
+mongoimport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
+Export collection
+mongoexport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
