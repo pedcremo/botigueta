@@ -18,5 +18,10 @@ app.use('/api/v1', require('./api')(wagner));
 // file.
 app.use(express.static('./', { maxAge: 4 * 60 * 60 * 1000 /* 2hrs */ }));
 
-app.listen(3000);
-console.log('Listening on port 3000!');
+//app.listen(3000);
+// Initialize the app.
+var server = app.listen(process.env.PORT || 8080, function () {
+   var port = server.address().port;
+   console.log("App now running on port", port);
+});
+//console.log('Listening on port 3000!');
