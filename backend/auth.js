@@ -58,14 +58,14 @@ function setupAuth(User, Config, app) {
         {
           scope: ['email'],
           //callbackURL: 'http://localhost:3000/auth/facebook/callback?redirect=' + redirect
-          callbackURL: '/auth/facebook/callback?redirect=' + redirect
+          callbackURL: 'https://botigueta.herokuapp.com/auth/facebook/callback?redirect=' + redirect
         })(req, res, next);
     });
 
   app.get('/auth/facebook/callback',
     function(req, res, next) {
       //var url = 'http://localhost:3000/auth/facebook/callback?redirect=' +
-      var url = '/auth/facebook/callback?redirect=' +
+      var url = 'https://botigueta.herokuapp.com/auth/facebook/callback?redirect=' +
         encodeURIComponent(req.query.redirect);
       passport.authenticate('facebook', { callbackURL: url })(req, res, next);
     },
