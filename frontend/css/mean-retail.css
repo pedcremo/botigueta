@@ -77,6 +77,20 @@ a {
   color: white;
 }
 
+.nav-bar .logout {
+  position: absolute;
+  font-size: 20px;
+  right: 0px;
+  top: 5px;
+  background-color: #CC4A14;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.nav-bar .logout a {
+  color: white;
+}
+
 .nav-bar .user-info {
   position: absolute;
   right: 0px;

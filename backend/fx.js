@@ -22,7 +22,7 @@ module.exports = function(Config) {
 
       var results;
       try {
-        var results = JSON.parse(res.text);
+        results = JSON.parse(res.text);
         _.each(results.rates || {}, function(value, key) {
           rates[key] = value;
         });

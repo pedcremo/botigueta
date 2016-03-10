@@ -1,8 +1,10 @@
 <div class="nav-bar">
   <div class="nav-bar-contents">
+    <a href="/frontend">
     <div class="logo">
       <img src="/logo.png " />
     </div>
+  </a>
     <div class="title">
       <a href="/frontend">
         Botigueta
@@ -16,6 +18,11 @@
       </div>
       <div class="user" ng-show="user.user">
         <img ng-src="{{user.user.profile.picture}}" />
+      </div>
+      <div class="logout" ng-show="user.user">
+        <a ng-href="#/logout">
+          <i class="fa fa-sign-out"></i>
+        </a>
       </div>
       <div class="login" ng-show="!user.user">
         <a href="/auth/facebook?redirect=%2Ffrontend%2F%23%2F">

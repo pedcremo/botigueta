@@ -18,13 +18,14 @@ function setupAuth(User, Config, app) {
     {
       clientID: Config.facebookClientId,
       clientSecret: Config.facebookClientSecret,
-      callbackURL: 'http://localhost:3000/auth/facebook/callback'
+      callbackURL: 'https://botigueta.herokuapp.com/auth/facebook/callback'
     },
     function(accessToken, refreshToken, profile, done) {
+      console.log(profile);
       if (!profile.emails || !profile.emails.length) {
         profile.emails=[{}];
-        profile.emails[0].value="pedcremo@gmail.com";
-        //return done('No emails associated with this account!');
+        //profile.emails[0].value="pedcremo@gmail.com";
+        return done('No emails associated with this account!');
       }
 
       User.findOneAndUpdate(
