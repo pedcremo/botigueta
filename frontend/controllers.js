@@ -75,6 +75,10 @@ exports.CheckoutController = function($scope, $user, $http) {
         $scoped.updated = true;
       });
   };
+  $scope.remove = function(array, index){
+    array.splice(index, 1);
+    $scope.updateCart();
+  };
 
   // For checkout
   Stripe.setPublishableKey('pk_test_KVC0AphhVxm52zdsM4WoBstU');
@@ -130,7 +134,7 @@ exports.SearchBarController = function($scope, $http) {
   // TODO: this function should make an HTTP request to
   // `/api/v1/product/text/:searchText` and expose the response's
   // `products` property as `results` to the scope.
-  
+
   $scope.update = function() {
 
     $http.

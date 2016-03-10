@@ -12,6 +12,7 @@
     </div>
     <div class="user-info">
       <div class="checkout" ng-show="user.user">
+        {{user.user.profile.displayName}}
         <a ng-href="#/checkout">
           <i class="fa fa-shopping-cart"></i>
         </a>
@@ -20,7 +21,7 @@
         <img ng-src="{{user.user.profile.picture}}" />
       </div>
       <div class="logout" ng-show="user.user">
-        <a ng-href="#/logout">
+        <a ng-href="/logout">
           <i class="fa fa-sign-out"></i>
         </a>
       </div>

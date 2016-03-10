@@ -16,6 +16,9 @@
         <input type="number" ng-model="item.quantity" />
       </div>
     </div>
+    <div class="delete">
+       <span ng-click="remove(user.user.data.cart,$index)">ESBORRAR</a>
+    </div>
     <div style="clear: both"></div>
   </div>
   <div class="update-cart-button" ng-click="updateCart()">

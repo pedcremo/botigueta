@@ -66,7 +66,7 @@ a {
 .nav-bar .checkout {
   position: absolute;
   font-size: 20px;
-  right: 42px;
+  right: 92px;
   top: 5px;
   background-color: #CC4A14;
   border-radius: 5px;
@@ -82,7 +82,7 @@ a {
   font-size: 20px;
   right: 0px;
   top: 5px;
-  background-color: #CC4A14;
+  background-color: #000000;
   border-radius: 5px;
   padding: 5px;
 }
@@ -93,13 +93,13 @@ a {
 
 .nav-bar .user-info {
   position: absolute;
-  right: 0px;
+  right: 43px;
   top: 0px;
 }
 
 .nav-bar .user-info img {
   position: absolute;
-  right: 0px;
+  right: 43px;
   top: 5px;
   height: 30px;
 }
@@ -294,6 +294,9 @@ a {
 
 .checkout-wrapper .checkout-product .product-details {
   float: left;
+}
+.checkout-wrapper .checkout-product .delete {
+  float: right;
 }
 
 .checkout-wrapper .checkout-product .product-details .name {

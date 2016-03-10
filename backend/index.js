@@ -21,6 +21,7 @@ app.use(express.static('./', { maxAge: 4 * 60 * 60 * 1000 /* 2hrs */ }));
 //app.listen(3000);
 // Initialize the app.
 var server = app.listen(process.env.PORT || 8080, function () {
+//var server = app.listen(process.env.PORT || 3000, function () {
    var port = server.address().port;
    console.log("App now running on port", port);
 });

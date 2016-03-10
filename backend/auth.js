@@ -19,20 +19,23 @@ function setupAuth(User, Config, app) {
       clientID: Config.facebookClientId,
       clientSecret: Config.facebookClientSecret,
       callbackURL: 'https://botigueta.herokuapp.com/auth/facebook/callback'
+      //callbackURL: 'https://localhost:3000/auth/facebook/callback'
     },
     function(accessToken, refreshToken, profile, done) {
       console.log(profile);
       if (!profile.emails || !profile.emails.length) {
         profile.emails=[{}];
         //profile.emails[0].value="pedcremo@gmail.com";
-        return done('No emails associated with this account!');
+        //return done('No emails associated with this account!');
+        console.log('No emails associated with this account!');
       }
 
       User.findOneAndUpdate(
         { 'data.oauth': profile.id },
         {
           $set: {
-            'profile.username': profile.emails[0].value,
+            //'profile.username': profile.emails[0].value,
+            'profile.username': profile.displayName,
             'profile.picture': 'http://graph.facebook.com/' +
               profile.id.toString() + '/picture?type=large'
           }
@@ -73,6 +76,12 @@ function setupAuth(User, Config, app) {
     function(req, res) {
       res.redirect(req.query.redirect);
     });
+
+
+   app.get('/logout', function(req, res) {
+         req.logout();
+         res.redirect('/frontend');
+   });
 }
 
 module.exports = setupAuth;
