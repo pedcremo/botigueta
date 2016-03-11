@@ -1,5 +1,5 @@
 <div class="checkout-wrapper">
-  {{total_=0}}
+
   <div  ng-repeat="item in user.user.data.cart"
         class="checkout-product">
     <div class="image-left">
@@ -21,7 +21,7 @@
        <span ng-click="remove(user.user.data.cart,$index)">ESBORRAR</a>
     </div>
     <div style="clear: both"></div>
-    {{total_+=(item.product.displayPrice*item.quantity)}}
+
   </div>
   <div class="update-cart-button" ng-click="updateCart()">
     Update Cart  TOTAL {{total_}}
