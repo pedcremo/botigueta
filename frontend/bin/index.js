@@ -73,7 +73,7 @@ exports.CheckoutController = function($scope, $user, $http) {
     $http.
       put('/api/v1/me/cart', $user.user).
       success(function(data) {
-        $scoped.updated = true;
+        $scope.updated = true;
       });
   };
   $scope.remove = function(array, index){
