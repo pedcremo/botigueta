@@ -8,6 +8,8 @@
     "morgan": "1.5.3",
     "passport": "0.2.2",
     "passport-facebook": "2.0.0",
+    "passport-twitter": "1.0.4",
+    "passport-google-oauth": "1.0.0",
     "stripe": "3.3.4",
     "superagent": "1.2.0",
     "underscore": "1.5.2",
