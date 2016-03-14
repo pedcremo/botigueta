@@ -1,54 +1,79 @@
+Respositori git del projecte https://git.heroku.com/botigueta.git
+URL de prova del projecte https://botigueta.herokuapp.com/frontend
+
+
 Backend
 --------
-NodeJS i mongoDB
+Implementat usant NodeJS i mongoDB. Mòduls node pricipals
 
+  -Export. Per al servidor web
+  -Moongoose. Com una especie de mapejador entitat-document per a mongo
+  -passport.  Per al "sign in" en facebook i futurs twitter i google.
+  -stripe. Per simular el pagament amb visa|mastercard o fer-los reals en cas de posar en producció
+  -
 Frontend
 --------
-Angular
+Implementat usan AngularJS (ver 1.4)
 
 
 Per fer funcionar el projecte cal tindre instal·lat al host nodeJS amb el npm i el
-mongodb
+mongodb (no imprescindible pera a aquest projecte ja que tenim una instància de mongodb en el cloud a mlab.com)
+
+Per connectar via API (backend/model.js)
+  mongodb://heroku_q6n2nng7:a344veou5fmvjhd37pupqo59d2@ds013619.mlab.com:13619/heroku_q6n2nng7
+
+Per connectar amb el client mongo via consola
+  mongo ds013619.mlab.com:13619/heroku_q6n2nng7 -u heroku_q6n2nng7 -p a344veou5fmvjhd37pupqo59d2
+
 
 Per farcir la BD de mongo amb dades inicials cal descomprimir backend/dump.20150611.tgz
 i executar "mongorestore dump"
 
-La primera vegada que engeguem el projecte cal instal·lar els mòduls nodeJS que usen tant backend/ com el frontend/
-Per tant entrem a backend/ i fem "npm install". El mateix en frontend/
+La primera vegada que engeguem el projecte cal instal·lar els mòduls nodeJS que usen tant en l'arrel
+com en backend/ iel frontend/
+Per tant entrem a l'arrel i fem "npm install". El mateix en frontend/ i backend/
 
-Després cal arrancar el server. Executem "node backend/index.js"
+Després cal arrancar el server des de l'arrel (on és Procfile). Executem "node backend/index.js"
 
-Seguidament obrirem  `http://localhost:3000/frontend/index.html' i explorarem l'aplicació
+Seguidament obrirem  `http://localhost:8080/frontend/index.html' i explorarem l'aplicació
 
 
-HEROKU (https://devcenter.heroku.com/articles/mean-apps-restful-api)
-------
-"heroku login"  - "heroku local web"
-https://botigueta.herokuapp.com/ | https://git.heroku.com/botigueta.git
+HEROKU INFO (https://devcenter.heroku.com/articles/mean-apps-restful-api)
+------------------------------------------------------------------------
+Heroku és el sistema escalable de hosting que hem usat per desplegar de manera còmoda aquest projecte.
+Tan sols cal anar desenvolupant i cada vegada que tinguem una versió estable fem un "git push heroku" per
+publicar.
+Amb aquest sistema podriem escalar l'aplicació molt fàcilment si el tràfic que generarà ho requerira.
+Simplement ens constaria més diners al més. Estem usant la regió Europea de heroku per a què la latència d'accés
+siga més curta.
+
+Cal instal·lar "heroku toolbelt" per tindre accés als comandaments que ens permeten gestionar
+aquest sistema de hosting.
+
+"heroku login"  //Iniciem sessió amb el nostre usuari heroku
+"heroku local web" //Desplegament de prova en local
+
+Com que hem usat mongoDB afegim el següent addon de heroku per usar una instància escalable de mongodb en
+ el cloud.
 heroku addons:create mongolab
 
-To connect using the mongo shell:
-mongo ds017258.mlab.com:17258/heroku_1lps40vz -u <dbuser> -p <dbpassword>
-To connect using a driver via the standard MongoDB URI (what's this?):
-  mongodb://<dbuser>:<dbpassword>@ds017258.mlab.com:17258/heroku_1lps40vz
 
-dbuser:pedcremo
-dbpassword:pedcremo
+Per exportar/importar dades en mongoDB
+------------------------------------------
+(recorda que user:heroku_q6n2nng7 i pass:a344veou5fmvjhd37pupqo59d2)
 
 JSON
-----
-Import collection
-mongoimport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> --file <input file>
-Export collection
-mongoexport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> -o <output file>
 
-Exemple: mongoexport -h localhost:27017 -d bocairent -c categories -o bocairent_categories.json
-mongoexport -h localhost:27017 -d bocairent -c products -o bocairent_products.json
-mongoexport -h localhost:27017 -d bocairent -c users -o bocairent_users.json
+Import collection
+mongoimport -h ds013619.mlab.com:13619 -d heroku_q6n2nng7 -c <collection> -u <user> -p <password> --file <input file>
+Export collection
+mongoexport -h ds013619.mlab.com:13619 -d heroku_q6n2nng7 -c <collection> -u <user> -p <password> -o <output file>
+
 
 CSV
----
+
 Import collection
-mongoimport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
+mongoimport -h ds013619.mlab.com:13619 -d heroku_q6n2nng7 -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
+
 Export collection
-mongoexport -h ds017258.mlab.com:17258 -d heroku_1lps40vz -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
+mongoexport -h ds013619.mlab.com:13619 -d heroku_q6n2nng7 -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
