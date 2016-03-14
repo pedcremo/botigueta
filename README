@@ -41,7 +41,7 @@ Seguidament obrirem  `http://localhost:8080/frontend/index.html' i explorarem l'
 HEROKU INFO (https://devcenter.heroku.com/articles/mean-apps-restful-api)
 ------------------------------------------------------------------------
 Heroku és el sistema escalable de hosting que hem usat per desplegar de manera còmoda aquest projecte.
-Tan sols cal anar desenvolupant i cada vegada que tinguem una versió estable fem un "git push heroku" per
+Tan sols cal anar desenvolupant i cada vegada que tinguem una versió estable fem un "git push heroku master" per
 publicar.
 Amb aquest sistema podriem escalar l'aplicació molt fàcilment si el tràfic que generarà ho requerira.
 Simplement ens constaria més diners al més. Estem usant la regió Europea de heroku per a què la latència d'accés
